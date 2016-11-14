@@ -1,11 +1,43 @@
 body {
+    color:#fff;
     margin:0;
     background-color: #777;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+p {
+    color: #fff;
+}
+
 select {
     text-align: center;
-    height: 50px;
 }
 
 #clear {
@@ -24,6 +56,16 @@ select {
     margin: 0 auto;
     width:1000px;
     text-align: center;
+}
+
+#nav_wrap {
+    margin-top:-5px;
+    width: 100%;
+}
+
+#nav {
+    margin:0 auto;
+    width:1000px;
 }
 
 #main_wrap {

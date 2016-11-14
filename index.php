@@ -11,10 +11,10 @@
             <div id="page">
                 <div class="single">
                     <select onchange="" class="single">
-                        <option>Selection 1</option>
-                        <option>Selection 2</option>
-                        <option>Selection 3</option>
-                        <option>Selection 4</option>
+                        <option>Computing</option>
+                        <option>House Work</option>
+                        <option>Yard Work</option>
+                        <option>Other</option>
                     </select>
                     <h1>This is the main content</h1>
                 </div>
