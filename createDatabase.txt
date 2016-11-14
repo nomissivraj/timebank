@@ -1,0 +1,45 @@
+for mac terminal:
+cd /Users/sjarvis5/Desktop/MampStuff/mysql/bin
+./mysql -u root -p
+
+CREATE DATABASE TimeBank;
+
+USE TimeBank;
+
+CREATE TABLE User(
+    User_ID INT NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(20) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    Email_acc VARCHAR(100) NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Age INT(3) NOT NULL,
+    Skills VARCHAR(500),
+    Location VARCHAR(100),
+    Phone_number VARCHAR(11),
+    Hours INT(3),
+    PRIMARY KEY (User_ID)
+);
+
+
+CREATE TABLE Admin(
+    Admin_ID INT NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(20) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    Email_Acc VARCHAR(100) NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Location VARCHAR(100),
+    Phone_number INT(11),
+    PRIMARY KEY (Admin_ID)
+);
+
+CREATE TABLE Services(
+    Service_ID INT NOT NULL AUTO_INCREMENT,
+    User_ID INT NOT NULL,
+    Service_Name VARCHAR(100),
+    Description VARCHAR(500),
+    Category VARCHAR(100),
+    Location VARCHAR(100),
+    PRIMARY KEY (Service_ID),
+    FOREIGN KEY (User_ID) REFERENCES User (User_ID)
+);
+

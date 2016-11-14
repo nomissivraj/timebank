@@ -1,0 +1,24 @@
+//INSERT USER DETAILS:
+
+INSERT INTO User (Username, Password, Email_Acc, Name, Age, Skills, Location, Phone_number, Hours) VALUES ('Nomis', 'password', 'simonpeterjarvis@gmail.com', 'Simon Jarvis', 24, 'Web Design', 'Norfolk', '07847553150', 1);
+
+//INSERT SERVICE DETAILS:
+
+INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VALUES ('Web Design', 'Design and creation of website', 'Computing', 'Norfolk', 1);
+
+//INSERT ADMIN DETAILS:
+
+INSERT INTO Admin (Username, Password, Email_Acc, Name, Location, Phone_number) VALUES ('NomisAdmin', 'adminpass', 'admin@site.com', 'Simon (admin) Jarvis', 'Norfolk', '01493850556' );
+
+
+
+//UPDATE A COULUMN FOR A USER EXAMPLE:
+//Setting hours can use variable name
+UPDATE User SET Hours='1' WHERE User_ID = 1;
+
+
+//Get stuff from multiple tables using direct query:
+SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location FROM User, Services WHERE User.User_ID = Services.User_ID;
+
+//Get stuff from multiple tables using Join:
+SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location FROM User INNER JOIN Services ON User.User_ID=Services.User_ID;
