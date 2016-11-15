@@ -22,6 +22,7 @@ $result = mysqli_query($connect,$query);
 $userArray = $result -> fetch_assoc();
 
 if ($result->num_rows == 1){
+    //SUCCESS
     $_SESSION['username'] = $username;
     $_SESSION['User_ID'] = $userArray['User_ID'];
     header('Location: index.php');
@@ -33,15 +34,16 @@ if ($result->num_rows == 1){
                 <link rel="stylesheet" href="style.css">
             </head>
             <body>
+                <?php require 'header.php' ?>
                 <div id="main_wrap">
                     <div id="page">
                         <div class="single">
                             <h1>login details were incorrect</h1>
-                            <h1>redirecting in 5...</h1>
+                            <h1>Please try again...</h1>
                             <script>
                                 setTimeout(function(){
                                     window.location.href = "index.php";
-                                }, 5000);
+                                }, 2000);
                             </script>
                         </div>
                     </div>
