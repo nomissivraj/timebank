@@ -1,0 +1,30 @@
+$currentUserID = "SELECT User.User_ID FROM User WHERE User.Username = '$username'";
+
+//collect service details from create.php
+$service = $_POST["service"];
+$service_desc = $_POST["service_desc"];
+$category = $_POST["category"];
+$service_locale = $_POST["servicelocale"];
+
+$insertService = "INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VALUES ('$service', '$service_desc', '$category', '$service_locale', '$currentUserID');";
+
+
+
+
+<!-- Also ask for service details -->
+                        <p>Add details of the service you will be offering:</p>
+                        Service Title:<input type="text" name="service" value="" placeholder="Computing"><br>
+                        Description:<input type="text-field" name="service_desc" value="" placeholder="Description of service"><br>
+                        Category:   <select name="category">
+                                        <option selected disabled>Select</option>
+                                        <option>Computing</option>
+                                        <option>House Work</option>
+                                        <option>Yard Work</option>
+                                    </select><br>
+                        Location of service: <select name="servicelocale">
+                                                <option selected disabled>Select</option>
+                                                <option>Plymouth</option>
+                                                <option>Norfolk</option>
+                                                <option>Essex</option>
+                                            </select><br>
+
