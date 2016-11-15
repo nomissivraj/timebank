@@ -1,4 +1,5 @@
 <?php
+session_start();
 // create datbase connection info
 $servername = "localhost";
 $dbUsername = "root";

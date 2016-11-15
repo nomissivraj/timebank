@@ -24,9 +24,33 @@ $userArray = $result -> fetch_assoc();
 if ($result->num_rows == 1){
     $_SESSION['username'] = $username;
     $_SESSION['User_ID'] = $userArray['User_ID'];
+    header('Location: index.php');
     //echo $userArray['User_ID'];
-} else {
-    echo "DIDN'T";
+} else { ?>
+            <html>
+            <head>
+                <title></title>
+                <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+                <div id="main_wrap">
+                    <div id="page">
+                        <div class="single">
+                            <h1>login details were incorrect</h1>
+                            <h1>redirecting in 5...</h1>
+                            <script>
+                                setTimeout(function(){
+                                    window.location.href = "index.php";
+                                }, 5000);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+                <?php include 'footer.php'; ?>
+            </body>
+        </html>
+    <?php session_destroy();
 }
-
+$connect->close();
 ?>

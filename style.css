@@ -51,6 +51,15 @@ select {
     background-color:#333;
 }
 
+.logform {
+    float: right;
+    padding:0 20px;
+}
+
+.loginput {
+    width:120px;
+}
+
 #banner {
     color: #fff;
     margin: 0 auto;
