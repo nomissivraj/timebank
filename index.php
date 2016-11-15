@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    if (isset($_SESSION['username'])){
+        echo 'logged in '.$_SESSION['username'].' '.$_SESSION['User_ID'];
+    } else {
+        echo 'FUCK YOU';
+    }
+?>
+
 <html>
     <head>
         <title></title>
@@ -6,9 +15,18 @@
     <body>
         <?php require 'header.php'; ?>
         
-        
         <div id="main_wrap">
             <div id="page">
+                <div class="single">
+                    <form method="post" action="login.php">
+                    Login:<br>
+                        username: <input type="text" name="login" value="" placeholder="Username"><br>
+                        password: <input type="text" name="password" value="" placeholder="Password"><br>
+
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+
                 <div class="single">
                     <select onchange="" class="single">
                         <option>Computing</option>

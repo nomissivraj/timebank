@@ -22,23 +22,6 @@
                         Skills: <input type="text-field" name="skills" value="" placeholder="Skills seperated by ','" maxlength="500"><br>
                         Location: <input type="text" name="locale" value="" placeholder="Location"><br>
                         Phone Number: <input type="text" name="phone" value="" placeholder="01234567898"><br>
-
-                        <!-- Also ask for service details -->
-                        <p>Add details of the service you will be offering:</p>
-                        Service Title:<input type="text" name="service" value="" placeholder="Computing"><br>
-                        Description:<input type="text-field" name="service_desc" value="" placeholder="Description of service"><br>
-                        Category:   <select name="category">
-                                        <option selected disabled>Select</option>
-                                        <option>Computing</option>
-                                        <option>House Work</option>
-                                        <option>Yard Work</option>
-                                    </select><br>
-                        Location of service: <select name="servicelocale">
-                                                <option selected disabled>Select</option>
-                                                <option>Plymouth</option>
-                                                <option>Norfolk</option>
-                                                <option>Essex</option>
-                                            </select><br>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
