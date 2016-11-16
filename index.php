@@ -1,12 +1,5 @@
 <?php 
-    session_id('login');
     session_start();
-    /*
-    if (isset($_SESSION['username'])){
-        echo 'logged in '.$_SESSION['username'].' '.$_SESSION['User_ID'];
-    } else {
-        echo 'FUCK YOU';
-    }*/
 ?>
 
 <html>

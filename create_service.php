@@ -1,42 +1,36 @@
-<?php
-// create datbase connection info
-$servername = "localhost";
-$dbUsername = "root";
-$dbPassword = "database";
-$database = "timebank";
+<?php 
+    session_start();
+?>
 
-// Create connection using connection info
-$connect = new mysqli($servername, $dbUsername, $dbPassword, $database);
-// Check if connection has worked or failed - if failed 'die'
-if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
-
-}
-
-$currentUserID = "SELECT User.User_ID FROM User WHERE User.Username = '$username'";
-
-//collect service details from create.php
-$service = $_POST["service"];
-$service_desc = $_POST["service_desc"];
-$category = $_POST["category"];
-$service_locale = $_POST["servicelocale"];
-
-$insertData = "INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VALUES ('$service', '$service_desc', '$category', '$service_locale', '$currentUserID');";
-
-if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HTML -->
-    <html>
+<html>
     <head>
         <title></title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <?php require 'header.php'; ?>        
+        <?php require 'header.php'; ?>
+        
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <h1>Your account has successfully been created! :)</h1>
-                    <p>Now to create your service</p>
-                    <a href="index.php">CLICK ME IF YOU ARE NOT REDIRECTED WITHIN 5 SECONDS</a>
+                    <form action="save_service.php" method="post">
+                        <h1>Add details of the service you will be offering:</h1>
+                        Service Title:<input type="text" name="service" value="" placeholder="Computing" required><br>
+                        Description:<input type="text-field" name="service_desc" value="" placeholder="Description of service" required><br>
+                        Category:   <select name="category" required>
+                                        <option value="" selected disabled>-Select</option>
+                                        <option>Computing</option>
+                                        <option>House Work</option>
+                                        <option>Yard Work</option>
+                                    </select><br>
+                        Location of service: <select name="servicelocale" required>
+                                                <option value="" selected disabled>-Select</option>
+                                                <option>Plymouth</option>
+                                                <option>Norfolk</option>
+                                                <option>Essex</option>
+                                            </select><br>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
                 <div id="service_list">
                 </div>
@@ -46,12 +40,3 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
         <?php include 'footer.php'; ?>
     </body>
 </html>
-    <!-- RE-ENTERPHP TO CONTINUE SCRIPT --><?php
-
-    //echo "New record created successfully";
-} else {
-    echo "Error: " . $insertData . "<br>" . $connect->error;
-}
-
-$connect->close();
-?>

@@ -1,7 +1,136 @@
 body {
-    color:#fff;
+    color:#d9d9d9;
     margin:0;
     background-color: #777;
+    padding-bottom:150px;/* height of fixed footer_wrap */
+}
+body::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color:#333;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #c60;
+  outline: 1px solid #c40;
+}
+/* login form styles */
+.logform {
+    float:right;
+    height:42px;
+    margin-top:-4px;
+    padding:0 20px;
+}
+
+.logform input[type=text] {
+    width:150px;
+    padding:2px 20px;
+    margin:2px 0;
+    border:2px solid #ea7d12;
+    border-radius:4px;
+}
+.logform input[type=password] {
+    width:150px;
+    padding:2px 20px;
+    margin:2px 0;
+    border:2px solid #ea7d12;
+    border-radius:4px;
+}
+
+.logform input[type=submit] {
+    color:white;
+    background-color:#ea7d12;
+    width:100px;
+    padding:2px 20px;
+    margin:10px 0;
+    border:2px solid #ea7d12;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logform input:focus {
+    background-color: #fff4ea;
+    outline:none;
+}
+
+.logform input[type=submit]:hover {
+    background-color: #ff942c;
+}
+/* END login form styles */
+
+input[type=text], select {
+    width:100%;
+    padding:10px 20px;
+    margin:2px 0;
+    display:inline-block;
+    border:2px solid #ea7d12;
+    border-radius:4px;
+}
+input[type=password] {
+    width:100%;
+    padding:10px 20px;
+    margin:2px 0;
+    display:inline-block;
+    border:2px solid #ea7d12;
+    border-radius:4px;
+}
+
+input[type=number] {
+    width:100%;
+    padding:10px 20px;
+    margin:2px 0;
+    display:inline-block;
+    border:2px solid #ea7d12;
+    border-radius:4px;
+}
+
+input[type=text-field] {
+    width:100%;
+    padding:10px 20px;
+    margin:2px 0;
+    border:2px solid #ea7d12;
+    border-radius:4px;
+}
+
+select:focus {
+    background-color: #fff4ea;
+    outline:none;
+}
+option:focus {
+    background-color: #fff4ea;
+    outline:none;
+}
+
+option:checked, option:hover {
+    color: white;
+    background: #ea7d12;
+}
+
+input[type=submit] {
+    color:white;
+    background-color:#ea7d12;
+    width:100%;
+    padding:10px 20px;
+    margin:10px 0;
+    border:2px solid #ea7d12;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input:focus {
+    background-color: #fff4ea;
+    outline:none;
+}
+
+input[type=submit]:hover {
+    background-color: #ff942c;
+}
+
+.dynamic {
+    color:#fff;
 }
 
 ul {
@@ -9,7 +138,10 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+}
+
+h1, h2, h3, h4 {
+    color:#fff;
 }
 
 li {
@@ -33,7 +165,7 @@ li a:hover:not(.active) {
 }
 
 p {
-    color: #fff;
+    color: #c4c4c4;
 }
 
 select {
@@ -47,34 +179,32 @@ select {
 #banner_wrap {
     margin:0 auto;
     width:100%;
-    height:100px;
+    height:190px;
     background-color:#333;
 }
 
-.logform {
-    float: right;
-    padding:0 20px;
-}
 
-.loginput {
-    width:120px;
+#login_bar {
+    height:35px;
+    background-color:#171717; 
 }
 
 #banner {
     color: #fff;
     margin: 0 auto;
+    height:83px;
     width:1000px;
     text-align: center;
 }
 
 #nav_wrap {
-    margin-top:-5px;
     width: 100%;
+    background-color: #ea7d12;
 }
 
 #nav {
     margin:0 auto;
-    width:1000px;
+    width:800px;
 }
 
 #main_wrap {
@@ -83,18 +213,21 @@ select {
 
 #page {
     margin:0 auto;
-    width:1000px;
+    width:800px;
 }
 
 .single {
-    padding:20px 20px;
+    padding:20px 0;
     width: 100%;
 }
 
 #footer_wrap {
     width:100%;
-    height:50px;
+    height:150px;
     background-color: #444;
+    border-top:3px solid #ea7d12;
+    position:fixed;
+    bottom:0px;
 }
 
 #footer {
@@ -102,4 +235,22 @@ select {
     margin: 0 auto;
     width: 1000px;
     text-align: center;
+}
+
+/*User profile styles*/
+#acc_details {
+    padding:5px;
+    float:left;
+    width:15%;
+}
+.acc_detail {
+    padding:6px 0;
+}
+
+#currency {
+    float:right;
+}
+
+#name_address {
+
 }

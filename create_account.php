@@ -1,5 +1,4 @@
 <?php
-session_id('userExists');
 session_start();
 // create datbase connection info
 $servername = "localhost";
@@ -51,13 +50,17 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
                 <div class="single">
                     <h1>Your account has successfully been created! :)</h1>
                     <p>Now to create your service</p>
-                    <a href="index.php">CLICK ME IF YOU ARE NOT REDIRECTED WITHIN 5 SECONDS</a>
+                    <a href="create_service.php">CLICK ME IF YOU ARE NOT REDIRECTED WITHIN 5 SECONDS</a>
                 </div>
                 <div id="service_list">
                 </div>
             </div>
         </div>
-        
+        <script>
+            setTimeout(function(){
+                window.location.href = "create_service.php";
+            }, 2000);
+        </script>
         <?php include 'footer.php'; ?>
     </body>
 </html>

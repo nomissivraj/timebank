@@ -25,6 +25,16 @@ if ($result->num_rows == 1){
     //SUCCESS
     $_SESSION['username'] = $username;
     $_SESSION['User_ID'] = $userArray['User_ID'];
+    //
+    $_SESSION['currency'] = $userArray['Hours'];
+    $_SESSION['email'] = $userArray['Email_acc'];
+    $_SESSION['phone'] = $userArray['Phone_number'];
+    $_SESSION['full_name'] = $userArray['Name'];
+    $_SESSION['age'] = $userArray['Age'];
+    $_SESSION['address'] = $userArray['Location'];
+    $_SESSION['skills'] = $userArray['Skills'];
+    
+
     header('Location: index.php');
     //echo $userArray['User_ID'];
 } else { ?>
