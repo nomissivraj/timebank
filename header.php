@@ -7,8 +7,8 @@
                 echo '<div class="logform">
                         <form method="post" action="login.php"> 
                         <span class="loginput">Login:</span> 
-                            <input class="loginput" type="text" name="login" value="" placeholder="Username">
-                            <input class="loginput" type="password" name="password" value="" placeholder="Password">
+                            <input class="loginput" type="text" name="login" value="" placeholder="Username" required>
+                            <input class="loginput" type="password" name="password" value="" placeholder="Password" required>
                             <input type="submit" value="submit">
                         </form>
                     </div>';
@@ -28,7 +28,7 @@
                 <li><a href="#services">Services</a></li>
                 <?php 
                     if (isset($_SESSION['username'])){
-                        echo '<li style="float:right;"><a href="create_service.php">Edit Service</a></li>';
+                        echo '<li style="float:right;"><a href="create_service.php">Add Service</a></li>';
                     };
                 ?>
                 <?php 
