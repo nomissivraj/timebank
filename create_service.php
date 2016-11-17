@@ -17,7 +17,7 @@
                         <h4>Final Step</h4>
                         <h1>Fill out to create your service:</h1>
                         Service Title:<input type="text" name="service" value="" placeholder="Computing" required><br>
-                        Description:<input type="text-field" name="service_desc" value="" placeholder="Description of service" required><br>
+                        Description:<textarea type="text-field" name="service_desc" value="" placeholder="Description of service" required></textarea><br>
                         Category:   <select name="category" required>
                                         <option value="" selected disabled>-Select</option>
                                         <option>Computing</option>
