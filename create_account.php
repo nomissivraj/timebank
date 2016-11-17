@@ -58,7 +58,7 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
         </div>
         <script>
             setTimeout(function(){
-                window.location.href = "create_service.php";
+                window.location.href = "create_account_step2.php";
             }, 2000);
         </script>
         <?php include 'footer.php'; ?>
@@ -71,6 +71,7 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
     //echo "New record created successfully";
 } else {
     //echo "Error: " . $insertData . "<br>" . $connect->error;
+    echo $connect->error;
 }
 
 $connect->close();

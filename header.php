@@ -9,7 +9,7 @@
                         <span class="loginput">Login:</span> 
                             <input class="loginput" type="text" name="login" value="" placeholder="Username" required>
                             <input class="loginput" type="password" name="password" value="" placeholder="Password" required>
-                            <input type="submit" value="submit">
+                            <input type="submit" value="Submit">
                         </form>
                     </div>';
             }
@@ -28,14 +28,18 @@
                 <li><a href="#services">Services</a></li>
                 <?php 
                     if (isset($_SESSION['username'])){
-                        echo '<li style="float:right;"><a href="create_service.php">Add Service</a></li>';
-                    };
-                ?>
-                <?php 
-                    if (isset($_SESSION['username'])){
                         echo '<li style="float:right;"><a href="logout.php">Logout</a></li>';
                     };
                 ?>
+
+                <?php 
+                    if (isset($_SESSION['username'])){
+                        if (!isset($_SESSION['has_service'])){
+                            echo '<li style="float:right;"><a href="create_service.php">Add Service</a></li>';
+                        }
+                    };
+                ?>
+            
 
                 <?php 
                     if (isset($_SESSION['username'])){

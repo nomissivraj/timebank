@@ -2,8 +2,56 @@ body {
     color:#d9d9d9;
     margin:0;
     background-color: #777;
-    padding-bottom:150px;/* height of fixed footer_wrap */
+    padding-bottom:180px;/* height of fixed footer_wrap */
+    font-family:sans-serif;
 }
+
+.dynamic { /* queried text */
+    color:#fff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+    color:#fff;
+    text-transform:uppercase;
+    font-family: sans-serif;
+}
+
+a {
+    color:#ea7d12;
+}
+a:hover {
+    color:#111;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color:#fff;
+    background-color: #111;
+}
+
+p {
+    color: #c4c4c4;
+    font-family:sans-serif;
+}
+
 body::-webkit-scrollbar {
     width: 6px;
 }
@@ -129,45 +177,6 @@ input[type=submit]:hover {
     background-color: #ff942c;
 }
 
-.dynamic {
-    color:#fff;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-h1, h2, h3, h4 {
-    color:#fff;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-
-p {
-    color: #c4c4c4;
-}
-
 select {
     text-align: center;
 }
@@ -247,10 +256,58 @@ select {
     padding:6px 0;
 }
 
-#currency {
+.right {
     float:right;
 }
 
 #name_address {
 
+}
+
+.service_desc_text {
+    width:60%;
+    padding: 0 0 50px 0;
+}
+
+.list-item {
+    width: 97%;
+    background-color: #444;
+    padding:10px;
+    margin:15px 0;
+    border:2px solid #c60;
+    border-radius:4px;
+    overflow:hidden;
+}
+
+.list-item:hover {
+    background-color: #555;
+}
+
+button {
+    color:#fff;
+    background-color: #ea7d12;
+    border:1px solid #d06700;
+    border-radius:4px;
+    margin:10px 3px;
+    padding:8px 12px;
+}
+button:hover {
+    background-color: #ff9a37;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.button {
+    color:#fff;
+    text-decoration: none;
+    background-color:#ea7d12;
+    border: 1px solid #c60;
+    border-radius:4px;
+    padding:5px;
+    margin:20px 5px 5px 5px;;
+}
+
+.button:hover {
+    background-color:#ffaf60;
+    text-decoration: none;
 }

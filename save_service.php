@@ -25,7 +25,7 @@ $service_locale = $_POST["servicelocale"];
 
 $insertData = "INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VALUES ('$service', '$service_desc', '$category', '$service_locale', '$_SESSION[User_ID]');";
 
-if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HTML -->
+if ($connect->query($insertData) === TRUE) { ?> <!-- If Service is saved correctly -->
     <html>
     <head>
         <title></title>
@@ -37,15 +37,13 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
             <div id="page">
                 <div class="single">
                     <h1>Your service has successfully been created! :)</h1>
-                    <a href="index.php">CLICK ME IF YOU ARE NOT REDIRECTED WITHIN 5 SECONDS</a>
-                </div>
-                <div id="service_list">
+                    <a href="profile.php">CLICK ME IF YOU ARE NOT REDIRECTED WITHIN 5 SECONDS</a>
                 </div>
             </div>
         </div>
         <script>
             setTimeout(function(){
-                window.location.href = "index.php";
+                window.location.href = "loadservices.php";
             }, 2000);
         </script>
         <?php include 'footer.php'; ?>

@@ -14,7 +14,8 @@
             <div id="page">
                 <div class="single">
                     <form action="save_service.php" method="post">
-                        <h1>Add details of the service you will be offering:</h1>
+                        <h4>Final Step</h4>
+                        <h1>Fill out to create your service:</h1>
                         Service Title:<input type="text" name="service" value="" placeholder="Computing" required><br>
                         Description:<input type="text-field" name="service_desc" value="" placeholder="Description of service" required><br>
                         Category:   <select name="category" required>

@@ -17,68 +17,109 @@
                 <?php
                     if (isset($_SESSION['username'])){
                         echo '
-                            <div class="single">
-                                <div id="currency">
-                                    CURRENCY: <span class="dynamic">'.$_SESSION['currency'].'</span> Hour
-                                </div>  
-                                <div id="acc_details">
-                                    <table>
-                                        <tr>
-                                            <td>USERNAME: </td>
-                                            <td class="dynamic">'.$_SESSION['username'].'</td>
-                                        </tr>
-                                        <tr>
-                                            <td>EMAIL: </td>
-                                            <td class="dynamic">'.$_SESSION['email'].'</td>
-                                        </tr>
-                                        <tr>
-                                            <td>PHONE: </td>
-                                            <td class="dynamic">'.$_SESSION['phone'].'</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div id="clear">
-                            </div>
-                            <div class="single">
-                                <div id="name_address">
-                                    <table>
-                                        <tr>
-                                            <td>NAME: </td>
-                                            <td class="dynamic">'.$_SESSION['full_name'].',</td>
-                                            <td class="dynamic">'.$_SESSION['age'].'</td>
-                                        </tr>
-                                    </table>
-                                </div>                  
-                            </div>
-                            <div id="clear">
-                            </div>
-                            <div class="single">
-                                <div id="address">
-                                    ADDRESS:
-                                </div>  
-                                <div id="address" class="dynamic">
-                                    '.$_SESSION['address'].'
-                                </div>                  
-                            </div>
-                            <div id="clear">
-                            </div>
-                            <div class="single">
-                                <div id="skills">
-                                    SKILLS:
-                                </div>  
-                                <div id="skills" class="dynamic">
-                                    '.$_SESSION['skills'].'
-                                </div>                  
-                            </div>';
+                            <div class="list-item">
+                                <a href="#">Edit Account details</a>
+                                    <div class="single">
+                                        <div class="right">
+                                            CURRENCY: <span class="dynamic">'.$_SESSION['currency'].'</span> Hour
+                                        </div>  
+                                        <div id="acc_details">
+                                            <table>
+                                                <tr>
+                                                    <td>USERNAME: </td>
+                                                    <td class="dynamic">'.$_SESSION['username'].'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>EMAIL: </td>
+                                                    <td class="dynamic">'.$_SESSION['email'].'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PHONE: </td>
+                                                    <td class="dynamic">'.$_SESSION['phone'].'</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="clear">
+                                    </div>
+                                    <div class="single">
+                                        <div id="name_address">
+                                            <table>
+                                                <tr>
+                                                    <td>NAME: </td>
+                                                    <td class="dynamic">'.$_SESSION['full_name'].',</td>
+                                                    <td class="dynamic">'.$_SESSION['age'].'</td>
+                                                </tr>
+                                            </table>
+                                        </div>                  
+                                    </div>
+                                    <div id="clear">
+                                    </div>
+                                    <div class="single">
+                                        <div id="address">
+                                            ADDRESS:
+                                        </div>  
+                                        <div id="address" class="dynamic">
+                                            '.$_SESSION['address'].'
+                                        </div>                  
+                                    </div>
+                                    <div id="clear">
+                                    </div>
+                                    <div class="single">
+                                        <div id="skills">
+                                            SKILLS:
+                                        </div>  
+                                        <div id="skills" class="dynamic">
+                                            '.$_SESSION['skills'].'
+                                        </div>                  
+                                    </div>
+                            </div>'
+                                ;
                     };
                 ?>
                 <div id="clear">
                 </div>
 
-                <div class="single">
+
                     <h1>YOUR SERVICE</h1>
-                </div>   
+                <?php
+                    if (isset($_SESSION['has_service'])){
+                        echo '
+                            <div class="list-item">
+                                <a href="#">Edit Service</a>
+                                <div class="single">
+                                    <div class="right service_desc_text">
+                                        <div>
+                                            Service Description:
+                                        </div>  
+                                        <div class="dynamic">
+                                            '.$_SESSION['service_desc'].'
+                                        </div>                  
+                                    </div>
+                                    <div id="service_titles">
+                                        <table>
+                                            <tr>
+                                                <td>Service: </td>
+                                                <td class="dynamic">'.$_SESSION['service_name'].'</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Category: </td>
+                                                <td class="dynamic">'.$_SESSION['service_cat'].'</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Location: </td>
+                                                <td class="dynamic">'.$_SESSION['service_locate'].'</td>
+                                            </tr>
+                                        </table>
+                                    </div>                  
+                                </div>
+                            </div>
+                            <div id="clear">
+                            </div>';
+                    } else {
+                        echo'<a href="create_service.php">Create a service</a>';
+                    };
+                ?>   
             </div>
         </div>
         

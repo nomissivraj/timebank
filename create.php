@@ -14,7 +14,8 @@
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <h2>Please enter your details to create an account:</h2>
+                    <h4>Step 1 of 3</h4>
+                    <h3>Please enter your details to create an account:</h3>
                     <form action="create_account.php" method="post">
                         <?php 
                             if(isset($_SESSION['userExists'])){
@@ -29,7 +30,7 @@
                         Age: <input type="number" name="age" value="" placeholder="Age" min="16" max="200" required><br>
                         Skills: <input type="text-field" name="skills" value="" placeholder="Skills seperated by ','" maxlength="500" required><br>
                         Location: <input type="text" name="locale" value="" placeholder="Location" required><br>
-                        Phone Number: <input type="text" name="phone" value="" placeholder="01234567898" required><br>
+                        Phone Number: <input type="text" name="phone" value="" placeholder="01234567898" maxlength="11" required><br>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
