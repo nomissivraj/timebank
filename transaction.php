@@ -14,6 +14,10 @@ if ($connect->connect_error) {
 
 }
 
+//get user_id of service
+$_SESSION['service_ID'] = $_GET['id'];
+
+
 $query = "UPDATE User SET User.Hours = User.Hours - 1 WHERE User.User_ID = $_SESSION[User_ID];";
 $result = mysqli_query($connect, $query);
 
@@ -47,8 +51,8 @@ if ($result) { ?>
     echo'Take hour failure';
 }
 
-//$query = "UPDATE User SET User.Hours = User.Hours - 1 WHERE User.User_ID = $_SESSION[User_ID];";
-//$result = mysqli_query($connect, $query);
+$query = "UPDATE User SET User.Hours = User.Hours + 1 WHERE User.User_ID = $_SESSION[service_ID];";
+$result = mysqli_query($connect, $query);
 
 
 $connect->close();

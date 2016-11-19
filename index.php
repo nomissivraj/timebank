@@ -15,7 +15,7 @@
 
     }
 
-    $result = mysqli_query($connect, "SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location FROM User INNER JOIN Services ON User.User_ID = Services.User_ID;");
+    $result = mysqli_query($connect, "SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location, Services.User_ID FROM User INNER JOIN Services ON User.User_ID = Services.User_ID;");
 ?>
 
 <html>
@@ -79,7 +79,12 @@
                                         <div class="right">
                                             <div>';
                                                 if(isset($_SESSION['username']) && $_SESSION['currency'] > 0){
-                                                   echo'<a href="transaction.php"> <div class="button">HIRE ME</div></a>';
+                                                   echo '
+                                                        <form style="width:30%; float:right" action="transaction.php" method="get">
+                                                            <input class="hide" type="text" name="id" value="'.$row['User_ID'].' " readonly>
+                                                            <input type="submit" value="Hire Me">
+                                                        </form>
+                                                   ';
                                                 };
                                                 echo'
                                             </div>

@@ -339,3 +339,8 @@ button:hover {
     background-color:#ffaf60;
     text-decoration: none;
 }
+
+input.hide {
+    visibility: hidden;
+    margin-top:-50px;
+}
