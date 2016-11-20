@@ -14,8 +14,7 @@ if ($connect->connect_error) {
 
 }
 
-//collect information from create.php
-$username = mysqli_real_escape_string($connect, $_POST["user"]);
+//collect information from edit-account.php
 $password = mysqli_real_escape_string($connect, $_POST["pass"]);
 $email = mysqli_real_escape_string($connect, $_POST["email"]);
 $name = mysqli_real_escape_string($connect, $_POST["name"]);
@@ -24,20 +23,11 @@ $skills = mysqli_real_escape_string($connect, $_POST["skills"]);
 $locale = mysqli_real_escape_string($connect, $_POST["locale"]);
 $phone = mysqli_real_escape_string($connect, $_POST["phone"]);
 
-$checkUser = mysqli_query($connect, "SELECT * FROM User WHERE User.Username = '$username';");
-$result = mysqli_num_rows($checkUser);
-
-if ($result > 0){
-    $_SESSION['userExists'] = "";
-    header('location:create.php');
-    die();
-}
-
-//Data to insert using variables from above
-$insertData = "INSERT INTO User (Username, Password, Email_Acc, Name, Age, Skills, Location, Phone_number, Hours) VALUES ('$username','$password', '$email', '$name', $age, '$skills', '$locale', '$phone', 1);";
+//Data to update user row using variables from above
+$updateData = "UPDATE User SET Password = '$password', Email_acc = '$email', Name = '$name', Age = '$age', Skills = '$skills', Location = '$locale', Phone_number = '$phone'  WHERE User_ID = $_SESSION[User_ID];";
 
 
-if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HTML -->
+if ($connect->query($updateData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HTML -->
     <html>
     <head>
         <title></title>
@@ -48,8 +38,7 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <h1>Your account has successfully been created! :)</h1>
-                    <p>Now to create your service</p>
+                    <h1>Your account details have been updated! :)</h1>
                 </div>
                 <div id="service_list">
                 </div>
@@ -57,7 +46,7 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HT
         </div>
         <script>
             setTimeout(function(){
-                window.location.href = "create_account_step2.php";
+                window.location.href = "loadservices.php";
             }, 2000);
         </script>
         <?php include 'footer.php'; ?>

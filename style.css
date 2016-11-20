@@ -66,6 +66,9 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid #c40;
 }
 /* login form styles */
+form {
+    margin-bottom:0.1em;
+}
 .logform {
     float:right;
     height:42px;
@@ -341,6 +344,6 @@ button:hover {
 }
 
 input.hide {
-    visibility: hidden;
+    display:none;
     margin-top:-50px;
 }

@@ -80,7 +80,7 @@
                                             <div>';
                                                 if(isset($_SESSION['username']) && $_SESSION['currency'] > 0){
                                                    echo '
-                                                        <form style="width:30%; float:right" action="transaction.php" method="get">
+                                                        <form action="transaction.php" method="get">
                                                             <input class="hide" type="text" name="id" value="'.$row['User_ID'].' " readonly>
                                                             <input type="submit" value="Hire Me">
                                                         </form>

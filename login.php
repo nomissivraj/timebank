@@ -14,8 +14,8 @@ if ($connect->connect_error) {
 
 }
 
-$username = $_POST["login"];
-$password = $_POST["password"];
+$username = mysqli_real_escape_string($connect, $_POST["login"]);
+$password = mysqli_real_escape_string($connect, $_POST["password"]);
 
 $query = "SELECT * FROM User WHERE User.Username = '$username' AND User.Password = '$password' LIMIT 1;";
 $result = mysqli_query($connect,$query);
@@ -44,6 +44,7 @@ if ($result->num_rows == 1){
     $_SESSION['username'] = $username;
     $_SESSION['User_ID'] = $userArray['User_ID'];
     //
+    $_SESSION['password'] = $userArray['Password'];
     $_SESSION['currency'] = $userArray['Hours'];
     $_SESSION['email'] = $userArray['Email_acc'];
     $_SESSION['phone'] = $userArray['Phone_number'];

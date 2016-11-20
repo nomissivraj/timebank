@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // create datbase connection info
 $servername = "localhost";
 $dbUsername = "root";
@@ -15,17 +14,17 @@ if ($connect->connect_error) {
 
 }
 
-//USE THIS FOR ATTEMPTING SERVICE AND USER CREATE AT SAME TIME $currentUserID = mysqli_query($connect,"SELECT User.User_ID FROM User WHERE User.Username = '$username'");
-
-//collect service details from create.php
+//collect information from edit-service.php 
 $service = mysqli_real_escape_string($connect, $_POST["service"]);
 $service_desc = mysqli_real_escape_string($connect, $_POST["service_desc"]);
 $category = mysqli_real_escape_string($connect, $_POST["category"]);
 $service_locale = mysqli_real_escape_string($connect, $_POST["servicelocale"]);
 
-$insertData = "INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VALUES ('$service', '$service_desc', '$category', '$service_locale', '$_SESSION[User_ID]');";
+//Data to update user row using variables from above
+$updateData = "UPDATE Services SET Service_Name = '$service', Description = '$service_desc', Category = '$category', Location = '$service_locale' WHERE User_ID = $_SESSION[User_ID];";
 
-if ($connect->query($insertData) === TRUE) { ?> <!-- If Service is saved correctly -->
+
+if ($connect->query($updateData) === TRUE) { ?> <!-- BREAK OUT OF PHP TO LOAD HTML -->
     <html>
     <head>
         <title></title>
@@ -36,7 +35,9 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- If Service is saved correct
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <h1>Your service has successfully been created! :)</h1>
+                    <h1>Your service details have been updated! :)</h1>
+                </div>
+                <div id="service_list">
                 </div>
             </div>
         </div>
@@ -48,11 +49,14 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- If Service is saved correct
         <?php include 'footer.php'; ?>
     </body>
 </html>
-    <!-- RE-ENTERPHP TO CONTINUE SCRIPT --><?php
-
+    <!-- RE-ENTERPHP TO CONTINUE SCRIPT -->
+<?php
+    session_id('userExists');
+    session_destroy();
     //echo "New record created successfully";
 } else {
-    echo "Error: " . $insertData . "<br>" . $connect->error;
+    //echo "Error: " . $insertData . "<br>" . $connect->error;
+    echo $connect->error;
 }
 
 $connect->close();

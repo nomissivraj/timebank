@@ -14,8 +14,8 @@ if ($connect->connect_error) {
 
 }
 
-$username = $_POST["login"];
-$password = $_POST["password"];
+$username = mysqli_real_escape_string($connect, $_POST["login"]);
+$password = mysqli_real_escape_string($connect, $_POST["password"]);
 
 $query = "SELECT * FROM User WHERE User.Username = '$username' AND User.Password = '$password' LIMIT 1;";
 $result = mysqli_query($connect,$query);

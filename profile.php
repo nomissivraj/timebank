@@ -18,7 +18,7 @@
                     if (isset($_SESSION['username'])){
                         echo '
                             <div class="list-item">
-                                <a href="#">Edit Account details</a>
+                                <a href="edit-account.php">Edit Account details</a>
                                     <div class="single">
                                         <div class="right">
                                             CURRENCY: <span class="dynamic">'.$_SESSION['currency'].'</span> Hour
@@ -86,7 +86,7 @@
                     if (isset($_SESSION['has_service'])){
                         echo '
                             <div class="list-item">
-                                <a href="#">Edit Service</a>
+                                <a href="edit-service.php">Edit Service</a>
                                 <div class="single">
                                     <div class="right service_desc_text">
                                         <div>

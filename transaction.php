@@ -48,7 +48,7 @@ if ($result) { ?>
         </html>
         <?php 
 } else {
-    echo'Take hour failure';
+    echo'Transaction hour failure';
 }
 
 $query = "UPDATE User SET User.Hours = User.Hours + 1 WHERE User.User_ID = $_SESSION[service_ID];";
