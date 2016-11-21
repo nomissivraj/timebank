@@ -35,7 +35,7 @@
                         <option>Yard Work</option>
                         <option>Other</option>
                     </select>
-                    <h1>This is the main content</h1>
+                    <h1>Current Services</h1>
                 </div>
                 <div id="service_list">
                     <?php 

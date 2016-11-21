@@ -54,7 +54,7 @@ if ($result->num_rows == 1){
     header('Location: profile.php');
     //echo $userArray['User_ID'];
 } else {
-    echo 'fucked up';
+    echo 'messed up';
 }
 
 $connect->close();
