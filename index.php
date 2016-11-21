@@ -29,13 +29,10 @@
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <select onchange="" class="single">
-                        <option>Computing</option>
-                        <option>House Work</option>
-                        <option>Yard Work</option>
-                        <option>Other</option>
-                    </select>
-                    <h1>Current Services</h1>
+                    <form method="post" action="search.php">
+                        <input type="text" value="" name="search" placeholder="Search">
+                        <input type="submit" value="Search">
+                    </form>
                 </div>
                 <div id="service_list">
                     <?php 

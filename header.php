@@ -25,7 +25,6 @@
         <div id="nav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#services">Services</a></li>
                 <?php 
                     if (isset($_SESSION['username'])){
                         echo '<li style="float:right;"><a href="logout.php">Logout</a></li>';

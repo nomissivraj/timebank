@@ -14,8 +14,11 @@
         die("Connection failed: " . $connect->connect_error);
 
     }
+    
+    $searchInput = $_POST['search'];
+    $search = "SELECT * FROM Services WHERE Service_Name LIKE '%".$searchInput."%'";
+    $searchResult = mysqli_query($connect, $search);
 
-    $result = mysqli_query($connect, "SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location, Services.User_ID FROM User INNER JOIN Services ON User.User_ID = Services.User_ID;");
 ?>
 
 <html>
@@ -29,17 +32,20 @@
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <select onchange="" class="single">
-                        <option>Computing</option>
-                        <option>House Work</option>
-                        <option>Yard Work</option>
-                        <option>Other</option>
-                    </select>
-                    <h1>Current Services</h1>
+                    <form method="post" action="search.php">
+                        <input type="text" value="" name="search" placeholder="Search">
+                        <input type="submit" value="Search">
+                    </form>
                 </div>
+                <div id="clear">
+                </div>
+                <div class="single">
+                    <h4>Search Result:</h4>
+                </div>
+                <?php include 'search-result.php'?>
                 <div id="service_list">
                     <?php 
-                        while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+                        while ($row = mysqli_fetch_array($searchResult,MYSQLI_ASSOC))
                             {
                             echo '
                                     <div class="single list-item">
