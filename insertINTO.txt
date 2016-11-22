@@ -8,8 +8,12 @@ INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VA
 
 //INSERT ADMIN DETAILS:
 
-INSERT INTO Admin (Username, Password, Email_Acc, Name, Location, Phone_number) VALUES ('NomisAdmin', 'adminpass', 'admin@site.com', 'Simon (admin) Jarvis', 'Norfolk', '01493850556' );
+INSERT INTO Admin (Username, Password, Email_Acc, Name, Location, Phone_number) VALUES ('admin', 'adminpass', 'admin@site.com', 'Simon (admin) Jarvis', 'Norfolk', '01493850556' );
 
+
+//INSERT INTO TICKETS:
+
+INSERT INTO Tickets (Ticket_Name, Ticket_Message, Ticket_OriginID, Ticket_OriginName, Ticket_Email) VALUES ('ticket name', 'ticket message', '3', 'ticket origin name', 'ticket@email');
 
 
 //UPDATE A COULUMN FOR A USER EXAMPLE:

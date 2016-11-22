@@ -16,8 +16,15 @@
     }
     
     $searchInput = $_POST['search'];
-    $search = "SELECT * FROM Services WHERE Service_Name LIKE '%".$searchInput."%'";
-    $searchResult = mysqli_query($connect, $search);
+    $searchID = "SELECT * FROM Services WHERE Service_Name LIKE '%".$searchInput."%'";
+    $searchID_Result = mysqli_query($connect, $searchID);
+    $searchID_Array = $searchID_Result -> fetch_assoc();
+    $resultID = $searchID_Array['User_ID'];
+    
+
+    $getResult = "SELECT User.User_ID, User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location FROM User INNER JOIN Services ON User.User_ID=Services.User_ID WHERE User.User_ID = $resultID;";
+    $saveResult = mysqli_query($connect, $getResult);
+
 
 ?>
 
@@ -42,10 +49,9 @@
                 <div class="single">
                     <h4>Search Result:</h4>
                 </div>
-                <?php include 'search-result.php'?>
                 <div id="service_list">
                     <?php 
-                        while ($row = mysqli_fetch_array($searchResult,MYSQLI_ASSOC))
+                        while ($row = mysqli_fetch_array($saveResult,MYSQLI_ASSOC))
                             {
                             echo '
                                     <div class="single list-item">

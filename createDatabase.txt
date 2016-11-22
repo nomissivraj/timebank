@@ -32,6 +32,17 @@ CREATE TABLE Admin(
     PRIMARY KEY (Admin_ID)
 );
 
+CREATE TABLE Tickets(
+    Ticket_ID INT NOT NULL AUTO_INCREMENT,
+    Ticket_Name VARCHAR(100) NOT NULL,
+    Ticket_Message VARCHAR (500) NOT NULL,
+    Ticket_OriginID INT NOT NULL,
+    Ticket_OriginName VARCHAR (20) NOT NULL,
+    Ticket_Email VARCHAR (100) NOT NULL,
+    PRIMARY KEY (Ticket_ID),
+    FOREIGN KEY (Ticket_OriginID) REFERENCES User (User_ID)
+);
+
 CREATE TABLE Services(
     Service_ID INT NOT NULL AUTO_INCREMENT,
     User_ID INT NOT NULL,

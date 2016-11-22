@@ -16,14 +16,12 @@ if ($connect->connect_error) {
 }
 
 
-//collect service details from create.php
-$service = mysqli_real_escape_string($connect, $_POST["service"]);
-$service_desc = mysqli_real_escape_string($connect, $_POST["service_desc"]);
-$category = mysqli_real_escape_string($connect, $_POST["category"]);
-$service_locale = mysqli_real_escape_string($connect, $_POST["servicelocale"]);
+//collect service details from create-ticket.php
+$ticketName = mysqli_real_escape_string($connect, $_POST["ticket-subject"]);
+$ticketDetails = mysqli_real_escape_string($connect, $_POST["ticket-details"]);
 
-$insertData = "INSERT INTO Services (Service_Name, Description, Category, Location, User_ID) VALUES ('$service', '$service_desc', '$category', '$service_locale', '$_SESSION[User_ID]');";
-
+$insertData = "INSERT INTO Tickets (Ticket_Name, Ticket_Message, Ticket_OriginID, Ticket_OriginName, Ticket_Email) VALUES ('$ticketName', '$ticketDetails', '$_SESSION[User_ID]', '$_SESSION[username]', '$_SESSION[email]');";
+             //INSERT INTO Tickets (Ticket_Name, Ticket_Message, Ticket_OriginID, Ticket_OriginName, Ticket_Email) VALUES ('ticket name', 'ticket message', '3', 'ticket origin name', 'ticket@email');
 if ($connect->query($insertData) === TRUE) { ?> <!-- If Service is saved correctly -->
     <html>
     <head>
@@ -35,7 +33,8 @@ if ($connect->query($insertData) === TRUE) { ?> <!-- If Service is saved correct
         <div id="main_wrap">
             <div id="page">
                 <div class="single">
-                    <h1>Your service has successfully been created! :)</h1>
+                    <h1>Your ticket has successfully been created! :)</h1>
+                    <h4>We'll get back to you shortly</h4>
                 </div>
             </div>
         </div>
