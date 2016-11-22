@@ -30,7 +30,11 @@
                         echo '<li style="float:right;"><a href="logout.php">Logout</a></li>';
                     };
                 ?>
-
+                <?php 
+                    if (isset($_SESSION['username'])){
+                        echo '<li style="float:right;"><a href="create-ticket.php">Support</a></li>';
+                    };
+                ?>
                 <?php 
                     if (isset($_SESSION['username'])){
                         if (!isset($_SESSION['has_service'])){

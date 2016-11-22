@@ -21,7 +21,7 @@
                         
                         What's wrong: <input type="text" name="ticket-subject" value="" placeholder="Brief summary of your problem" maxlength="100" required><br>
                         
-                        Detail of issue: <textarea type="text" name="ticket-details" value="" placeholder="Describe the details of your problem" required></textarea><br>
+                        Details of problem: <textarea type="text" name="ticket-details" value="" placeholder="Describe the details of your problem" required></textarea><br>
                         
                         <input type="submit" value="Submit">
                     </form>
