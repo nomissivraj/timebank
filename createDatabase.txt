@@ -54,3 +54,15 @@ CREATE TABLE Services(
     FOREIGN KEY (User_ID) REFERENCES User (User_ID)
 );
 
+CREATE TABLE Requests(
+    Request_ID INT NOT NULL AUTO_INCREMENT,
+    Owner_ID INT NOT NULL,
+    Recipient_ID INT NOT NULL,
+    Service_ID INT NOT NULL,
+    PRIMARY KEY (Request_ID),
+    FOREIGN KEY (Owner_ID) REFERENCES User (User_ID),
+    FOREIGN KEY (Recipient_ID) REFERENCES User (User_ID),
+    FOREIGN KEY (Service_ID) REFERENCES Services (Service_ID)
+); 
+
+
