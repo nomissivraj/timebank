@@ -23,6 +23,7 @@
                                         <div class="right">
                                             CURRENCY: <span class="dynamic">'.$_SESSION['currency'].'</span> Hour
                                         </div>  
+                                        why isnt this different
                                         <div id="acc_details">
                                             <table>
                                                 <tr>
