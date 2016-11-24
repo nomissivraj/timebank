@@ -54,6 +54,8 @@ if ($result) { ?>
 $query = "UPDATE User SET User.Hours = User.Hours + 1 WHERE User.User_ID = $_SESSION[service_ID];";
 $result = mysqli_query($connect, $query);
 
+$message = "INSERT INTO Requests (Owner_ID, Recipient_ID) VALUES ('$_SESSION[service_ID]', '$_SESSION[User_ID]')";
+$result2 = mysqli_query($connect, $message);
 
 $connect->close();
 ?>

@@ -15,6 +15,9 @@ INSERT INTO Admin (Username, Password, Email_Acc, Name, Location, Phone_number) 
 
 INSERT INTO Tickets (Ticket_Name, Ticket_Message, Ticket_OriginID, Ticket_OriginName, Ticket_Email) VALUES ('ticket name', 'ticket message', '3', 'ticket origin name', 'ticket@email');
 
+//INSERT INTO REQEUESTS:
+Oliver getting service from me;
+INSERT INTO Requests (Owner_ID, Recipient_ID, Service_ID, Service_Name) VALUES (11, 12, 10, 'Simons Cooking service 23');
 
 //UPDATE A COULUMN FOR A USER EXAMPLE:
 //Setting hours can use variable name
@@ -26,3 +29,4 @@ SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.P
 
 //Get stuff from multiple tables using Join:
 SELECT User.Username, User.email_acc, User.Name, User.Age, User.Location, User.Phone_number, User.Hours, Services.Service_Name, Services.Description, Services.Category, Services.Location FROM User INNER JOIN Services ON User.User_ID=Services.User_ID;
+

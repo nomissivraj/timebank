@@ -1,6 +1,25 @@
 
 <?php 
     session_start();
+
+     // create datbase connection info
+    $servername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "database";
+    $database = "timebank";
+
+    // Create connection using connection info
+    $connect = new mysqli($servername, $dbUsername, $dbPassword, $database);
+    // Check if connection has worked or failed - if failed 'die'
+    if ($connect->connect_error) {
+        die("Connection failed: " . $connect->connect_error);
+
+    }
+
+    $testQ = "SELECT User.Username, User.Phone_number, User.User_ID, User.Name, User.Email_Acc, Requests.Request_ID FROM User, Requests WHERE Requests.Recipient_ID = User.User_ID AND Owner_ID = $_SESSION[User_ID]";
+    $testQR = mysqli_query($connect, $testQ);
+
+
 ?>
 
 <html>
@@ -23,7 +42,6 @@
                                         <div class="right">
                                             CURRENCY: <span class="dynamic">'.$_SESSION['currency'].'</span> Hour
                                         </div>  
-                                        why isnt this different
                                         <div id="acc_details">
                                             <table>
                                                 <tr>
@@ -33,6 +51,10 @@
                                                 <tr>
                                                     <td>EMAIL: </td>
                                                     <td class="dynamic">'.$_SESSION['email'].'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PHONE: </td>
+                                                    <td class="dynamic">'.$_SESSION['phone'].'</td>
                                                 </tr>
                                                 <tr>
                                                     <td>PHONE: </td>
@@ -120,7 +142,53 @@
                     } else {
                         echo'<a href="create_service.php">Create a service</a>';
                     };
-                ?>   
+                ?>
+                <h1>Job Requests</h1>
+                <?php
+                $stuff = false;
+                    while ($row = mysqli_fetch_array($testQR,MYSQLI_ASSOC)) {
+                        $stuff = true;
+                            echo '
+                                <div class="list-item">
+                                    <p>Following User has hired you:</p>
+                                    <div class="single">
+                                        <div class="right service_desc_text">
+                                            <div>
+                                                Service Description:
+                                            </div>  
+                                            <div class="dynamic">
+                                                '.$_SESSION['service_name'].'
+                                            </div>                  
+                                        </div>
+                                        <div id="service_titles">
+                                            <table>
+                                                <tr>
+                                                    <td>User: </td>
+                                                    <td class="dynamic">'.$row['Username'].'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email: </td>
+                                                    <td class="dynamic">'.$row['Email_Acc'].'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Contact No.: </td>
+                                                    <td class="dynamic">'.$row['Phone_number'].'</td>
+                                                </tr>
+                                            </table>
+                                        </div>                  
+                                    </div>
+                                    <form action="delete-request.php" method="get">
+                                        <input class="hide" type="text" name="id" value="'.$row['Request_ID'].' " readonly>
+                                        <input type="submit" value="Delete">
+                                    </form>
+                                </div>
+                                <div id="clear">
+                                </div>';
+                    }
+                    if (!$stuff) {
+                        echo 'You have no requests';
+                    }
+                 ?>   
             </div>
         </div>
         
