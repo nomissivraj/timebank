@@ -15,7 +15,7 @@ INSERT INTO Admin (Username, Password, Email_Acc, Name, Location, Phone_number) 
 
 INSERT INTO Tickets (Ticket_Name, Ticket_Message, Ticket_OriginID, Ticket_OriginName, Ticket_Email) VALUES ('ticket name', 'ticket message', '3', 'ticket origin name', 'ticket@email');
 
-//INSERT INTO REQEUESTS:
+//INSERT INTO REQEUESTS EXAMPLE:
 Oliver getting service from me;
 INSERT INTO Requests (Owner_ID, Recipient_ID, Service_ID, Service_Name) VALUES (11, 12, 10, 'Simons Cooking service 23');
 
