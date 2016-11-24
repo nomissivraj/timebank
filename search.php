@@ -16,7 +16,7 @@
     }
     
     $searchInput = $_POST['search'];
-    $searchID = "SELECT * FROM Services WHERE Service_Name LIKE '%".$searchInput."%'";
+    $searchID = "SELECT * FROM Services WHERE Service_Name LIKE '%$searchInput%' OR Category LIKE '%$searchInput%' OR Description LIKE '%$searchInput%'";
     $searchID_Result = mysqli_query($connect, $searchID);
     $searchID_Array = $searchID_Result -> fetch_assoc();
     $resultID = $searchID_Array['User_ID'];
@@ -51,58 +51,63 @@
                 </div>
                 <div id="service_list">
                     <?php 
+                        $stuff = false;
                         while ($row = mysqli_fetch_array($saveResult,MYSQLI_ASSOC))
                             {
-                            echo '
-                                    <div class="single list-item">
-                                        <div class="right">
-                                            <table>
-                                                <tr>
-                                                    <td>User: </td>
-                                                    <td>'. $row['Username'] . '</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Contact: </td>
-                                                    <td>'. $row['email_acc'] . '</td>
-                                                </tr>
-                                            </table>
-                                        </div>  
-                                        <table>
-                                            <tr>
-                                                <td>Service:</td>
-                                                <td>'. $row['Service_Name'] . '</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Category:</td>
-                                                <td>'. $row['Category'] . '</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location:</td>
-                                                <td>'. $row['Location'] . '</td>
-                                            </tr>
-                                        </table>
-                                        
-                                        <table>
-                                            <tr>
-                                                <td>Description of service:</td>
-                                                <td>'. $row['Description'] . '</td>
-                                            </tr>
-                                        </table>
-                                        <div class="right">
-                                            <div>';
-                                                if(isset($_SESSION['username']) && $_SESSION['currency'] > 0){
-                                                   echo '
-                                                        <form action="transaction.php" method="get">
-                                                            <input class="hide" type="text" name="id" value="'.$row['User_ID'].' " readonly>
-                                                            <input type="submit" value="Hire Me">
-                                                        </form>
-                                                   ';
-                                                };
-                                                echo'
-                                            </div>
-                                        </div>  
-                                </div>';
-                            }
+                                $stuff = true;
+                                    echo '
+                                            <div class="single list-item">
+                                                <div class="right">
+                                                    <table>
+                                                        <tr>
+                                                            <td>User: </td>
+                                                            <td>'. $row['Username'] . '</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Contact: </td>
+                                                            <td>'. $row['email_acc'] . '</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>  
+                                                <table>
+                                                    <tr>
+                                                        <td>Service:</td>
+                                                        <td>'. $row['Service_Name'] . '</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Category:</td>
+                                                        <td>'. $row['Category'] . '</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Location:</td>
+                                                        <td>'. $row['Location'] . '</td>
+                                                    </tr>
+                                                </table>
+                                                
+                                                <table>
+                                                    <tr>
+                                                        <td>Description of service:</td>
+                                                        <td>'. $row['Description'] . '</td>
+                                                    </tr>
+                                                </table>
+                                                <div class="right">
+                                                    <div>';
+                                                        if(isset($_SESSION['username']) && $_SESSION['currency'] > 0){
+                                                        echo '
+                                                                <form action="transaction.php" method="get">
+                                                                    <input class="hide" type="text" name="id" value="'.$row['User_ID'].' " readonly>
+                                                                    <input type="submit" value="Hire Me">
+                                                                </form>
+                                                        ';
+                                                        };
+                                                        echo'
+                                                    </div>
+                                                </div>  
+                                        </div>';
+                                if (!$stuff){
+                                    echo 'No results please try again';
+                                }
+                            }// end of while
                     ?>
                 </div>
             </div>
