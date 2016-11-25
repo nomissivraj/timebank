@@ -56,10 +56,6 @@
                                                     <td>PHONE: </td>
                                                     <td class="dynamic">'.$_SESSION['phone'].'</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>PHONE: </td>
-                                                    <td class="dynamic">'.$_SESSION['phone'].'</td>
-                                                </tr>
                                             </table>
                                         </div>
                                     </div>
