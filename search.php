@@ -92,7 +92,7 @@
                                                 </table>
                                                 <div class="right">
                                                     <div>';
-                                                        if(isset($_SESSION['username']) && $_SESSION['currency'] > 0){
+                                                        if(isset($_SESSION['username']) && $_SESSION['currency'] > 0 && $row['User_ID'] != $_SESSION['User_ID']){
                                                         echo '
                                                                 <form action="transaction.php" method="get">
                                                                     <input class="hide" type="text" name="id" value="'.$row['User_ID'].' " readonly>

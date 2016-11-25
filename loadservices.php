@@ -42,6 +42,7 @@ if ($result->num_rows == 1){
     $_SESSION['username'] = $userArray['Username'];
     $_SESSION['User_ID'] = $userArray['User_ID'];
     //
+    $_SESSION['password'] = $userArray['Password'];
     $_SESSION['currency'] = $userArray['Hours'];
     $_SESSION['email'] = $userArray['Email_acc'];
     $_SESSION['phone'] = $userArray['Phone_number'];
